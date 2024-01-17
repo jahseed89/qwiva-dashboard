@@ -1,113 +1,244 @@
-import Image from 'next/image'
+"use client";
 
-export default function Home() {
+import Image from "next/image";
+import "./page.scss";
+import InputElement from "@/components/input/InputElement";
+import { useState } from "react";
+import Button from "@/components/button/Button";
+
+export default function Auth() {
+  const [email, setEmail] = useState<string>("");
+  const [password, setPassword] = useState<string>("");
+  const [showSignup, setShowSingup] = useState<boolean>(false);
+
+  const handleEmailChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setEmail(event.target.value);
+  };
+
+  const handlePasswordChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setPassword(event.target.value);
+  };
+
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <div className="z-10 max-w-5xl w-full items-center justify-between font-mono text-sm lg:flex">
-        <p className="fixed left-0 top-0 flex w-full justify-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 pb-6 pt-8 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:static lg:w-auto  lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30">
-          Get started by editing&nbsp;
-          <code className="font-mono font-bold">app/page.tsx</code>
-        </p>
-        <div className="fixed bottom-0 left-0 flex h-48 w-full items-end justify-center bg-gradient-to-t from-white via-white dark:from-black dark:via-black lg:static lg:h-auto lg:w-auto lg:bg-none">
-          <a
-            className="pointer-events-none flex place-items-center gap-2 p-8 lg:pointer-events-auto lg:p-0"
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{' '}
+    <main className="h-[100%]">
+      <div className="container mx-auto flex h-screen">
+        <div className="bg-gradient-to-r from-purple-100 via-purple-200 to-purple-300 hidden lg:block lg:w-[30%] xl:w-[40%] py-10 px-20 mx-auto">
+          <div className="flex items-center">
+            <span>
+              <Image src="/auth-logo.png" width={50} height={40} alt="logo" />
+            </span>
+            <h2 className="pl-5 font-bold text-3xl text-white-100">Stryke</h2>
+          </div>
+          <div className="w-[90%] text-white-100 my-10 pt-8">
+            <h2 className="font-bold text-2xl">Let’s build something amazing today.</h2>
+            <p className="text-sm py-7">
+              Maybe some text here will help me see it better. Oh God. Oke,
+              let’s do it then.{" "}
+            </p>
+          </div>
+          <div>
+            <Image src="/msg-logo.png" alt="messages" width={80} height={80} />
             <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className="dark:invert"
+              src="/Ellipse 242.png"
+              alt="messages"
               width={100}
-              height={24}
-              priority
+              height={100}
             />
-          </a>
+          </div>
         </div>
-      </div>
-
-      <div className="relative flex place-items-center before:absolute before:h-[300px] before:w-[480px] before:-translate-x-1/2 before:rounded-full before:bg-gradient-radial before:from-white before:to-transparent before:blur-2xl before:content-[''] after:absolute after:-z-20 after:h-[180px] after:w-[240px] after:translate-x-1/3 after:bg-gradient-conic after:from-sky-200 after:via-blue-200 after:blur-2xl after:content-[''] before:dark:bg-gradient-to-br before:dark:from-transparent before:dark:to-blue-700 before:dark:opacity-10 after:dark:from-sky-900 after:dark:via-[#0141ff] after:dark:opacity-40 before:lg:h-[360px] z-[-1]">
-        <Image
-          className="relative dark:drop-shadow-[0_0_0.3rem_#ffffff70] dark:invert"
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-      </div>
-
-      <div className="mb-32 grid text-center lg:max-w-5xl lg:w-full lg:mb-0 lg:grid-cols-4 lg:text-left">
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Docs{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Find in-depth information about Next.js features and API.
-          </p>
-        </a>
-
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Learn{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Learn about Next.js in an interactive course with&nbsp;quizzes!
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Templates{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Explore starter templates for Next.js.
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Deploy{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
+        {showSignup ? (
+          <form className="bg-lightgrey-200  py-5 px-10 w-[100%] md:w-[100%] lg:w-[70%] xl:w-[70%] mx-auto relative">
+            <div className="w-[100%] md:w-[90%] lg:w-[60%] xl:w-[50%] mx-auto">
+              <div>
+                <div className="flex items-center mb-10 mt-5 pb-5 lg:hidden">
+                  <span>
+                    <Image
+                      src="/dashboard-logo.png"
+                      width={50}
+                      height={40}
+                      alt="logo"
+                    />
+                  </span>
+                  <h2 className="pl-5 font-bold text-3xl">Stryke</h2>
+                </div>
+                <div className="my-8">
+                  <Image src="/hey.png" width={30} height={30} alt="hi" />
+                </div>
+                <h1 className="text-2xl font-bold py-4">Sign Up</h1>
+                <p>Let’s build something great</p>
+              </div>
+              <div className="mt-10">
+                <div className="form-input">
+                  <label className="text-gray-100 text-sm">
+                    E-mail or phone number
+                  </label>
+                  <InputElement
+                    type="email"
+                    placeholder="Type your e-mail or phone number"
+                    value={email}
+                    handleChange={handleEmailChange}
+                  />
+                </div>
+                <div className="form-input">
+                  <label className="text-gray-100 text-sm">Password</label>
+                  <InputElement
+                    type="password"
+                    placeholder="********"
+                    value={password}
+                    handleChange={handlePasswordChange}
+                  />
+                </div>
+                <div className="form-input">
+                  <label className="text-gray-100 text-sm">Comfirm password</label>
+                  <InputElement
+                    type="password"
+                    placeholder="********"
+                    value={password}
+                    handleChange={handlePasswordChange}
+                  />
+                </div>
+                <div className="form-input pt-2">
+                  <Button
+                    btnText="Sign Up"
+                    onClick={(event) => console.log(`I am clicked ${event}`)}
+                  />
+                </div>
+                <div>
+                  <p className="text-xs my-7 text-right">
+                    <span>or do it with via other account</span>
+                  </p>
+                  <div className="flex justify-between items-center media">
+                    <span className="rounded bg-white-100 flex justify-center items-center">
+                      <Image
+                        src="/google.svg"
+                        width={20}
+                        height={20}
+                        alt="google"
+                      />
+                    </span>
+                    <span className="rounded bg-white-100 flex justify-center items-center">
+                      <Image
+                        src="/apple-logo.svg"
+                        alt="apple"
+                        width={20}
+                        height={20}
+                      />{" "}
+                    </span>
+                    <span className="rounded bg-white-100 flex justify-center items-center">
+                      <Image
+                        src="/facebook.svg"
+                        width={20}
+                        height={10}
+                        alt="facebood"
+                      />
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <p className="text-right text-sm pb-8 pr-6 signup-position">
+              Already have an account{" "}
+              <span
+                className="text-blue-100"
+                onClick={() => setShowSingup((prev) => !prev)}
+              >
+                Login
+              </span>
+            </p>
+          </form>
+        ) : (
+          <form className="bg-lightgrey-200  py-5 px-10 w-[100%] md:w-[100%] lg:w-[70%] xl:w-[70%] mx-auto relative">
+            <div className="w-[100%] md:w-[90%] lg:w-[60%] xl:w-[50%] mx-auto">
+              <div>
+                <div className="flex items-center mb-10 mt-5 pb-5 lg:hidden">
+                  <span>
+                    <Image
+                      src="/dashboard-logo.png"
+                      width={50}
+                      height={40}
+                      alt="logo"
+                    />
+                  </span>
+                  <h2 className="pl-5 font-bold text-3xl">Stryke</h2>
+                </div>
+                <div className="my-8">
+                  <Image src="/hey.png" width={30} height={30} alt="hi" />
+                </div>
+                <h1 className="text-2xl font-bold py-4">Welcome back!</h1>
+                <p>Let’s build something great</p>
+              </div>
+              <div className="mt-10">
+                <div className="form-input">
+                  <label className="text-gray-100 text-sm">
+                    E-mail or phone number
+                  </label>
+                  <InputElement
+                    type="email"
+                    placeholder="Type your e-mail or phone number"
+                    value={email}
+                    handleChange={handleEmailChange}
+                  />
+                </div>
+                <div className="form-input">
+                  <label className="text-gray-100 text-sm">Password</label>
+                  <InputElement
+                    type="password"
+                    placeholder="********"
+                    value={password}
+                    handleChange={handlePasswordChange}
+                  />
+                </div>
+                <div className="form-input pt-2">
+                  <Button
+                    btnText="Sign in"
+                    onClick={(event) => console.log(`I am clicked ${event}`)}
+                  />
+                </div>
+                <div>
+                  <p className="text-xs my-7 text-right">
+                    <span>or do it with via other account</span>
+                  </p>
+                  <div className="flex justify-between items-center media">
+                    <span className="rounded bg-white-100 flex justify-center items-center">
+                      <Image
+                        src="/google.svg"
+                        width={20}
+                        height={20}
+                        alt="google"
+                      />
+                    </span>
+                    <span className="rounded bg-white-100 flex justify-center items-center">
+                      <Image
+                        src="/apple-logo.svg"
+                        alt="apple"
+                        width={20}
+                        height={20}
+                      />{" "}
+                    </span>
+                    <span className="rounded bg-white-100 flex justify-center items-center">
+                      <Image
+                        src="/facebook.svg"
+                        width={20}
+                        height={10}
+                        alt="facebood"
+                      />
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+             <p className="text-right text-sm pb-8 pr-6 signup-position">
+              Don’t have an account?{" "}
+              <span
+                className="text-blue-100"
+                onClick={() => setShowSingup((prev) => !prev)}
+              >
+                Get started
+              </span>
+            </p>
+          </form>
+        )}
       </div>
     </main>
-  )
+  );
 }
