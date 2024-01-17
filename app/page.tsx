@@ -139,7 +139,7 @@ export default function Auth() {
             <p className="text-right text-sm pb-8 pr-6 signup-position">
               Already have an account{" "}
               <span
-                className="text-blue-100"
+                className="text-blue-100 cursor-auto"
                 onClick={() => setShowSingup((prev) => !prev)}
               >
                 Login
@@ -230,7 +230,7 @@ export default function Auth() {
              <p className="text-right text-sm pb-8 pr-6 signup-position">
               Don’t have an account?{" "}
               <span
-                className="text-blue-100"
+                className="text-blue-100 cursor-auto"
                 onClick={() => setShowSingup((prev) => !prev)}
               >
                 Get started
