@@ -3,14 +3,17 @@
 import Image from "next/image";
 import "./page.scss";
 import InputElement from "@/components/input/InputElement";
-import { ReactEventHandler, useState } from "react";
+import { useState } from "react";
 import Button from "@/components/button/Button";
 
 export default function Auth() {
   const [email, setEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
   const [confirmPassword, setConfirmPasword] = useState<string>("");
-  const [isSubmitting, setIssubmitting] = useState<boolean>(false)
+  const [isSubmitting, setIssubmitting] = useState<boolean>(false);
+  const [emailError, setEmailError] = useState<string>("");
+  const [passwordError, setPasswordError] = useState<string>("");
+  const [confirmPasswordError, setConfirmPasswordError] = useState<string>("");
 
   const [showSignup, setShowSingup] = useState<boolean>(false);
 
@@ -22,49 +25,77 @@ export default function Auth() {
     setPassword(event.target.value);
   };
 
-  const handlePasswordConfirmation = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setConfirmPasword(event.target.value)
-  }
+  const handlePasswordConfirmation = (
+    event: React.ChangeEvent<HTMLInputElement>
+  ) => {
+    setConfirmPasword(event.target.value);
+  };
 
-  const handleSubmit = async(e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault()
-    setIssubmitting(true)
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setIssubmitting(true);
 
-    await new Promise((resolve) => setTimeout(resolve, 1000))
-    setIssubmitting(false)
-  }
+    const emailRegex = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i;
+    if (!emailRegex.test(email)) {
+      setEmailError("Enter a valid email");
+    }
+    if (password.length < 5) {
+      setPasswordError("Password must be more than 5 car");
+    } else if (password !== confirmPassword) {
+      setConfirmPasswordError("Password must match");
+    }
+
+    await new Promise((resolve) => setTimeout(resolve, 1000));
+    setEmail("");
+    setPassword("");
+    setConfirmPasword("");
+
+    setIssubmitting(false);
+  };
 
   return (
     <main className="h-[100%]">
       <div className="container mx-auto flex h-screen">
-        <div className="bg-gradient-to-r from-purple-100 via-purple-200 to-purple-300 hidden lg:block lg:w-[30%] xl:w-[40%] py-10 px-20 mx-auto">
-          <div className="flex items-center">
-            <span>
-              <Image src="/auth-logo.png" width={50} height={40} alt="logo" />
-            </span>
-            <h2 className="pl-5 font-bold text-3xl text-white-100">Stryke</h2>
-          </div>
-          <div className="w-[90%] text-white-100 my-10 pt-8">
-            <h2 className="font-bold text-2xl">
-              Let’s build something amazing today.
-            </h2>
-            <p className="text-sm py-7">
-              Maybe some text here will help me see it better. Oh God. Oke,
-              let’s do it then.{" "}
-            </p>
-          </div>
+        <div className="bg-gradient-to-r from-purple-100 via-purple-200 to-purple-300 hidden lg:block lg:w-[40%] xl:w-[50%] py-10 px-20 mx-auto">
           <div>
-            <Image src="/msg-logo.png" alt="messages" width={80} height={80} />
-            <Image
-              src="/Ellipse 242.png"
-              alt="messages"
-              width={100}
-              height={100}
-            />
+            <div className="flex items-center">
+              <span>
+                <Image src="/auth-logo.png" width={50} height={40} alt="logo" />
+              </span>
+              <h2 className="pl-5 font-bold text-3xl text-white-100">Stryke</h2>
+            </div>
+            <div className="w-[90%] text-white-100 my-10 pt-8">
+              <h2 className="font-bold text-2xl">
+                Let’s build something amazing today.
+              </h2>
+              <p className="text-sm py-7">
+                Maybe some text here will help me see it better. Oh God. Oke,
+                let’s do it then.{" "}
+              </p>
+            </div>
+          </div>
+          <div className="flex justify-between ">
+              <span class="absolute bottom-0">
+              <Image
+                src="/msg-logo.png"
+                alt="messages"
+                width={80}
+                height={80}
+              />
+              </span>
+            <span className="absolute bottom-0 round-img-positioning">
+              <Image
+                src="/Ellipse 242.png"
+                alt="messages"
+                width={100}
+                height={100}
+              />
+            </span>
           </div>
         </div>
         {showSignup ? (
-          <form onSubmit={handleSubmit}
+          <form
+            onSubmit={handleSubmit}
             className="bg-lightgrey-200  py-5 px-10 w-[100%] md:w-[100%] lg:w-[70%] xl:w-[70%] mx-auto relative"
           >
             <div className="w-[100%] md:w-[90%] lg:w-[60%] xl:w-[50%] mx-auto">
@@ -98,6 +129,9 @@ export default function Auth() {
                     handleChange={handleEmailChange}
                     required
                   />
+                  {emailError && (
+                    <span className="text-red-200 text-sm">{emailError}</span>
+                  )}
                 </div>
                 <div className="form-input">
                   <label className="text-gray-100 text-sm">Password</label>
@@ -108,6 +142,11 @@ export default function Auth() {
                     handleChange={handlePasswordChange}
                     required
                   />
+                  {passwordError && (
+                    <span className="text-red-200 text-sm">
+                      {passwordError}
+                    </span>
+                  )}
                 </div>
                 <div className="form-input">
                   <label className="text-gray-100 text-sm">
@@ -120,19 +159,25 @@ export default function Auth() {
                     handleChange={handlePasswordConfirmation}
                     required
                   />
+                  {confirmPasswordError && (
+                    <span className="text-red-200 text-sm">
+                      {confirmPasswordError}
+                    </span>
+                  )}
                 </div>
                 <div className="form-input pt-2">
-                  {/* <Button
+                  <Button
                     btnText="Sign Up"
-                    onClick={()=> submitData}
-                  /> */}
-                  <button
+                    disable={isSubmitting}
+                    onClick={(e) => console.log("Form submited", e)}
+                  />
+                  {/* <button
                     type="submit"
                     disabled={isSubmitting}
                     className="text-white-100 bg-blue-100 rounded disabled:bg-blue-50 text-sm py-3 md:py-4 lg:py-2 w-[100%]"
                   >
                     Sign Up
-                  </button>
+                  </button> */}
                 </div>
                 <div>
                   <p className="text-xs my-7 text-right">
@@ -178,7 +223,10 @@ export default function Auth() {
             </p>
           </form>
         ) : (
-          <form className="bg-lightgrey-200  py-5 px-10 w-[100%] md:w-[100%] lg:w-[70%] xl:w-[70%] mx-auto relative">
+          <form
+            onSubmit={handleSubmit}
+            className="bg-lightgrey-200  py-5 px-10 w-[100%] md:w-[100%] lg:w-[70%] xl:w-[70%] mx-auto relative"
+          >
             <div className="w-[100%] md:w-[90%] lg:w-[60%] xl:w-[50%] mx-auto">
               <div>
                 <div className="flex items-center mb-5 mt-5 pb-5 lg:hidden">
@@ -208,10 +256,11 @@ export default function Auth() {
                     placeholder="Type your e-mail or phone number"
                     value={email}
                     handleChange={handleEmailChange}
-                    
-                   
                     required
                   />
+                  {emailError && (
+                    <span className="text-red-200 text-sm">{emailError}</span>
+                  )}
                 </div>
                 <div className="form-input">
                   <label className="text-gray-100 text-sm">Password</label>
@@ -220,22 +269,20 @@ export default function Auth() {
                     placeholder="********"
                     value={password}
                     handleChange={handlePasswordChange}
-                   
                     required
                   />
-          
+                  {passwordError && (
+                    <span className="text-red-200 text-sm">
+                      {passwordError}
+                    </span>
+                  )}
                 </div>
                 <div className="form-input pt-2">
-                  {/* <Button
-                    btnText="Sign in"
-                    onClick={()=> submitData}
-                  /> */}
-                  <button
-                    type="submit"
-                    className="text-white-100 bg-blue-100 rounded text-sm py-3 md:py-4 lg:py-2 w-[100%]"
-                  >
-                    Sign In
-                  </button>
+                  <Button
+                    btnText="Sign In"
+                    disable={isSubmitting}
+                    onClick={(e) => console.log("Form submited", e)}
+                  />
                 </div>
                 <div>
                   <p className="text-xs my-7 text-right">
