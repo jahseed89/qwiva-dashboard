@@ -75,14 +75,14 @@ export default function Auth() {
             </div>
           </div>
           <div className="flex justify-between ">
-              <span className="absolute bottom-0">
+            <span className="absolute bottom-0">
               <Image
                 src="/msg-logo.png"
                 alt="messages"
                 width={80}
                 height={80}
               />
-              </span>
+            </span>
             <span className="absolute bottom-0 round-img-positioning">
               <Image
                 src="/Ellipse 242.png"
@@ -171,13 +171,6 @@ export default function Auth() {
                     disable={isSubmitting}
                     onClick={(e) => console.log("Form submited", e)}
                   />
-                  {/* <button
-                    type="submit"
-                    disabled={isSubmitting}
-                    className="text-white-100 bg-blue-100 rounded disabled:bg-blue-50 text-sm py-3 md:py-4 lg:py-2 w-[100%]"
-                  >
-                    Sign Up
-                  </button> */}
                 </div>
                 <div>
                   <p className="text-xs my-7 text-right">
@@ -209,18 +202,18 @@ export default function Auth() {
                       />
                     </span>
                   </div>
+                  <p className="text-right text-sm pt-20">
+                    Already have an account{" "}
+                    <span
+                      className="text-blue-100 cursor-auto"
+                      onClick={() => setShowSingup((prev) => !prev)}
+                    >
+                      Login
+                    </span>
+                  </p>
                 </div>
               </div>
             </div>
-            <p className="text-right text-sm pb-3  pr-5 lg:mr-20 xl:mr-30 signup-position">
-              Already have an account{" "}
-              <span
-                className="text-blue-100 cursor-auto"
-                onClick={() => setShowSingup((prev) => !prev)}
-              >
-                Login
-              </span>
-            </p>
           </form>
         ) : (
           <form
@@ -314,18 +307,18 @@ export default function Auth() {
                       />
                     </span>
                   </div>
+                  <p className="text-right text-sm pt-20">
+                    Don’t have an account?{" "}
+                    <span
+                      className="text-blue-100 cursor-auto"
+                      onClick={() => setShowSingup((prev) => !prev)}
+                    >
+                      Get started
+                    </span>
+                  </p>
                 </div>
               </div>
             </div>
-            <p className="text-right text-sm pb-3  pr-5 lg:mr-20 xl:mr-30 signup-position">
-              Don’t have an account?{" "}
-              <span
-                className="text-blue-100 cursor-auto"
-                onClick={() => setShowSingup((prev) => !prev)}
-              >
-                Get started
-              </span>
-            </p>
           </form>
         )}
       </div>
