@@ -75,7 +75,7 @@ export default function Auth() {
             </div>
           </div>
           <div className="flex justify-between ">
-              <span class="absolute bottom-0">
+              <span className="absolute bottom-0">
               <Image
                 src="/msg-logo.png"
                 alt="messages"
