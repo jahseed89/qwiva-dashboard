@@ -9,5 +9,6 @@ export interface InputElementProps {
     type: string;
     value: string;
     placeholder: string;
+    required: boolean;
     handleChange: (event: React.ChangeEvent<HTMLInputElement>)=> void
 }
