@@ -1,10 +1,9 @@
 import type { Metadata } from 'next'
-import { Inter } from 'next/font/google'
 import './globals.css'
 
 
 export const metadata: Metadata = {
-  title: 'Dashboard',
+  title: 'Qwiva Dashboard',
   description: 'A dashboard project for qwiva.io',
 }
 
@@ -15,7 +14,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body className='bg-lightgrey-200 h-[100%] lg:px-5'>{children}</body>
     </html>
   )
 }
