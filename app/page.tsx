@@ -5,6 +5,7 @@ import "./page.scss";
 import InputElement from "@/components/input/InputElement";
 import { useState } from "react";
 import Button from "@/components/button/Button";
+import { useRouter } from "next/navigation";
 
 export default function Auth() {
   const [email, setEmail] = useState<string>("");
@@ -36,7 +37,7 @@ export default function Auth() {
     setIssubmitting(true);
 
     const emailRegex = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i;
-    if (!emailRegex.test(email)) {
+    if (!emailRegex.test(email)){
       setEmailError("Enter a valid email");
     }
     if (password.length < 5) {
@@ -45,12 +46,19 @@ export default function Auth() {
       setConfirmPasswordError("Password must match");
     }
 
+
     await new Promise((resolve) => setTimeout(resolve, 1000));
     setEmail("");
     setPassword("");
     setConfirmPasword("");
 
     setIssubmitting(false);
+    toMainLayout()
+  };
+  const router = useRouter();
+
+  const toMainLayout = () => {
+    router.push("dashboard");
   };
 
   return (
@@ -270,13 +278,11 @@ export default function Auth() {
                     </span>
                   )}
                 </div>
-                <div className="form-input pt-2">
-                  <Button
-                    btnText="Sign In"
-                    disable={isSubmitting}
-                    onClick={(e) => console.log("Form submited", e)}
-                  />
-                </div>
+                <Button
+                  btnText="Sign In"
+                  disable={isSubmitting}
+                  onClick={(e) => console.log("welcom", e)}
+                />
                 <div>
                   <p className="text-xs my-7 text-right">
                     <span>or do it with via other account</span>
