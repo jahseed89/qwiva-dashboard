@@ -1,8 +1,9 @@
 import React, { ReactNode } from "react";
 
 export interface ButtonProps {
-    btnText: string;
+    children: ReactNode;
     disable: boolean;
+    additionalStyles: string;
     onClick: (event: React.MouseEvent<HTMLButtonElement>)=> void;
 }
 

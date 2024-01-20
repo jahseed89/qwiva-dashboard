@@ -5,7 +5,7 @@ import { routes } from "@/utiles";
 
 const SideBar = () => {
   return (
-    <aside>
+    <aside className="transition duration-200">
       <div className="flex justify-start items-center pl-1 pt-3">
         <Image src="/dashboard-logo.png" width={30} height={30} alt="logo" />
         <h2 className="text-blue-200 text-2xl pl-2 font-bold">Stryke</h2>

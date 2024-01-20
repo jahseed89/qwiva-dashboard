@@ -37,7 +37,7 @@ export default function Auth() {
     setIssubmitting(true);
 
     const emailRegex = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i;
-    if (!emailRegex.test(email)){
+    if (!emailRegex.test(email)) {
       setEmailError("Enter a valid email");
     }
     if (password.length < 5) {
@@ -46,14 +46,13 @@ export default function Auth() {
       setConfirmPasswordError("Password must match");
     }
 
-
     await new Promise((resolve) => setTimeout(resolve, 1000));
     setEmail("");
     setPassword("");
     setConfirmPasword("");
 
     setIssubmitting(false);
-    toMainLayout()
+    toMainLayout();
   };
   const router = useRouter();
 
@@ -175,10 +174,12 @@ export default function Auth() {
                 </div>
                 <div className="form-input pt-2">
                   <Button
-                    btnText="Sign Up"
                     disable={isSubmitting}
                     onClick={(e) => console.log("Form submited", e)}
-                  />
+                    additionalStyles=""
+                  >
+                    Sign Up
+                  </Button>
                 </div>
                 <div>
                   <p className="text-xs my-7 text-right">
@@ -279,10 +280,13 @@ export default function Auth() {
                   )}
                 </div>
                 <Button
-                  btnText="Sign In"
                   disable={isSubmitting}
                   onClick={(e) => console.log("welcom", e)}
-                />
+                  additionalStyles=""
+                >
+                  Sign In
+                </Button>
+
                 <div>
                   <p className="text-xs my-7 text-right">
                     <span>or do it with via other account</span>
