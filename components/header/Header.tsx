@@ -1,5 +1,4 @@
 import React from "react";
-import "./header.scss";
 import { HiOutlineCloudDownload } from "react-icons/hi";
 import { usePathname } from "next/navigation";
 import Button from "../button/Button";
@@ -16,7 +15,7 @@ const Header = () => {
         <Button
           disable={false}
           onClick={(e) => console.log("downloading", e)}
-          additionalStyles="flex justify-between items-center bg-white-100 text-sm py-2 rounded w-[40%] mr-5 px-3 text-black download-btn"
+          additionalStyles="flex justify-between items-center bg-white-100 text-sm py-2 rounded w-[40%] mr-5 px-3 text-black shadow-cardShadow"
         >
           <span className="pr-1 text-black">
             <HiOutlineCloudDownload />

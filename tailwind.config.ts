@@ -70,12 +70,14 @@ const config: Config = {
           // 150: '#ccd6f6',
           // 200: '#8892b0',
           300: '#A6B2C3',
+          400: "#9B9BB5"
         },
         blue: {
           10: '#E0E8FF',
           50: '#adcff9',
           100: '#4C6FFF',
           200: "#636DFF",
+          250: "#A6B7D4",
           500: '#513cef',
           600: '#5452d379',
           700: '#0142e2',
@@ -144,6 +146,9 @@ const config: Config = {
           color44: '#4fa94d',
         },
       },
+      boxShadow: {
+        cardShadow: "0px 0px 1px 0px rgba(50, 50, 71, 0.20), 0px 1px 2px 0px rgba(50, 50, 71, 0.08)"
+      }
     },
 
   },

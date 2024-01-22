@@ -25,3 +25,7 @@ export interface CareersCardProps {
     figue: string;
     rate: string;
 }
+
+export interface VeiwersCardProps {
+    children: ReactNode
+}
