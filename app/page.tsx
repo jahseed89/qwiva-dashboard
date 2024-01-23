@@ -32,33 +32,72 @@ export default function Auth() {
     setConfirmPasword(event.target.value);
   };
 
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    setIssubmitting(true);
-
-    const emailRegex = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i;
-    if (!emailRegex.test(email)) {
-      setEmailError("Enter a valid email");
-    }
-    if (password.length < 5) {
-      setPasswordError("Password must be more than 5 car");
-    } else if (password !== confirmPassword) {
-      setConfirmPasswordError("Password must match");
-    }
-
-    await new Promise((resolve) => setTimeout(resolve, 1000));
-    setEmail("");
-    setPassword("");
-    setConfirmPasword("");
-
-    setIssubmitting(false);
-    toMainLayout();
-  };
+  // ******* Routing to dashboard **********
   const router = useRouter();
 
   const toMainLayout = () => {
     router.push("dashboard");
   };
+
+  const validateForm = () => {
+    setEmailError("");
+    setPasswordError("");
+    setConfirmPasswordError("");
+
+    const emailRegex = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i;
+
+    if (!emailRegex.test(email)) {
+      setEmailError("Enter a valid email");
+      return false;
+    }
+
+    if (password.length < 5) {
+      setPasswordError("Password must be at least 5 characters");
+      return false;
+    }
+
+    if (showSignup && password !== confirmPassword) {
+      setConfirmPasswordError("Passwords must match");
+      return false;
+    }
+
+    return true;
+  };
+
+  const authenticateUser = async () => {
+    // Simulate server authentication - we can replace this with  actual authentication logic
+    return new Promise<boolean>((resolve) => {
+      setTimeout(() => {
+        // For the sake of the example, now let's assume the authentication is successful
+        resolve(true);
+      }, 1000);
+    });
+  };
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    
+    if (!validateForm()) {
+      return;
+    }
+
+    setIssubmitting(true);
+
+    try {
+      const isAuthenticated = await authenticateUser();
+
+      if (isAuthenticated) {
+        toMainLayout();
+      } else {
+        //Let's handle authentication failure
+        console.log("Authentication failed");
+      }
+    } finally {
+      setIssubmitting(false);
+    }
+  };
+
+
 
   return (
     <main className="h-[100%]">
@@ -211,7 +250,7 @@ export default function Auth() {
                       />
                     </span>
                   </div>
-                  <p className="text-right text-sm pt-20">
+                  <p className="text-right text-sm pt-12">
                     Already have an account{" "}
                     <span
                       className="text-blue-100 cursor-pointer"

@@ -1,31 +1,35 @@
 import Image from "next/image";
-
+import { IoHomeOutline } from "react-icons/io5";
+import { GrProjects } from "react-icons/gr";
+import { AiOutlineMessage } from "react-icons/ai";
+import { MdHomeRepairService } from "react-icons/md";
+import { RiGroupLine } from "react-icons/ri";
 
 export const routes = [
     {
         name: 'Dashboard',
         layout: '/dashboard',
-        icon: <Image src="/home.svg" width={20} height={20} alt="home" />,
+        icon: <IoHomeOutline />
     },
 
     {
         name: 'Project',
         layout: '/projects',
-        icon: <Image src="/project.svg" alt="project" width={20} height={20} />,
+        icon: <GrProjects />,
     },
     {
         name: 'Messages',
         layout: '/messages',
-        icon: <Image src="/msg.svg" alt="message" width={20} height={20} />,
+        icon: <AiOutlineMessage />,
     },
     {
         name: 'Services',
         layout: '/services',
-        icon: <Image src="/services.svg" alt="project" width={20} height={20} />
+        icon: <MdHomeRepairService />
     },
     {
         name: 'Customers',
         layout: '/customers',
-        icon: <Image src="/customers.svg" alt="project" width={20} height={20} />
+        icon: <RiGroupLine />
     }
 ]

@@ -83,18 +83,25 @@ const Dashboard = () => {
                 </div>
               </div>
             </ViewersCard>
-            <ViewersCard>
-              <div>
-                <input type="email" placeholder="E-mail" className="py-2.5 px-3 mt-2 md:py-3.5 lg:py-2.5 rounded-md bg-lightgrey-100" />
-                <Button
-                  disable={false}
-                  onClick={(e) => console.log("Subscribing...", e)}
-                  additionalStyles="flex justify-between items-center text-sm py-2 rounded w-[30%] px-3 text-white-100"
-                >
-                  <span>Subscribe</span>
-                </Button>
-              </div>
-            </ViewersCard>
+            <div className="mt-4 lg:mt-[15%] pt-1">
+              <ViewersCard>
+                <div className="relative">
+                  <input
+                    type="email"
+                    placeholder="E-mail"
+                    className="py-2 px-3 mt-2 md:py-3.5 lg:py-2 w-[100%] rounded-md bg-lightgrey-100"
+                  />
+                  <Button
+                    disable={false}
+                    onClick={(e) => console.log("Subscribing...", e)}
+                    additionalStyles="flex justify-center items-center text-sm !py-2 rounded w-[100px] !px-2 absolute right-0 top-2.5"
+                  >
+                    <span>Subscribe</span>
+                  </Button>
+                </div>
+                <p className="pt-12 text-sm">Follow your statistics</p>
+              </ViewersCard>
+            </div>
           </div>
         </div>
       </div>
