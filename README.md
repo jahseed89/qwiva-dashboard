@@ -1,5 +1,3 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
-
 ## Getting Started
 
 First, run the development server:
@@ -14,23 +12,20 @@ pnpm dev
 bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Login and Sign up
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+The application is entirely operational starting from the login page. Users will only gain access to the dashboard upon fulfilling the necessary requirements specified in the error messages. This principle applies to the signup page as well. Moreover, the application is fully responsive.
 
-## Learn More
+## Dashboard and Side navigation
 
-To learn more about Next.js, take a look at the following resources:
+Upon logging in, the dashboard serves as the main landing page. Users have the capability to navigate through various routes from the side navigation and remain active on the selected route.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Other functionalities
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+The application incorporates all essential functionalities according to its intended flow.
 
-## Deploy on Vercel
+## Hosted Site
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+For test cases on both mobile and other devices, I have also hosted the application for testing purposes. Below is the hosted link:
+https://qwiva-dashboard.vercel.app/

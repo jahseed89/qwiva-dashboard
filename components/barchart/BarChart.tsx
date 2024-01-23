@@ -58,13 +58,6 @@ const BarChart = () => {
           borderSkipped: false
 
         },
-        // {
-        //   label: '',
-        //   data: [''],
-        //   backgroundColor: '',
-        //   barThickness: 0,
-        //   borderRadius: 0,
-        // },
         {
           label: '',
           data: ['20', '20', '10', '15', '20', '25', '30'],
@@ -74,13 +67,6 @@ const BarChart = () => {
           borderSkipped: false
 
         },
-        // {
-        //   label: '',
-        //   data: [''],
-        //   backgroundColor: '',
-        //   barThickness: 0,
-        //   borderRadius: 0,
-        // },
         {
           label: '',
           data: ['16', '9', '04', '15', '17', '20', '15'],

@@ -23,7 +23,7 @@ export interface CareersCardProps {
     icon: ReactNode;
     title: string;
     figue: string;
-    rate: string;
+    rate: number;
 }
 
 export interface VeiwersCardProps {
