@@ -6,7 +6,6 @@ import React, { useState } from "react";
 import { MainLayoutProps } from "../../@types/index";
 import { TfiMenu } from "react-icons/tfi";
 import { IoClose } from "react-icons/io5";
-import { routes } from "@/utiles";
 
 const MainLayout: React.FC<MainLayoutProps> = ({ children }) => {
   const [toggleSidebar, setToggleSidebar] = useState<boolean>(false);
