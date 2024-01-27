@@ -1,4 +1,3 @@
-import Image from "next/image";
 import { IoHomeOutline } from "react-icons/io5";
 import { GrProjects } from "react-icons/gr";
 import { AiOutlineMessage } from "react-icons/ai";

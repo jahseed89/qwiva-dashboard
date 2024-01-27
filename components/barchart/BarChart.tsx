@@ -112,7 +112,7 @@ const BarChart = () => {
   }, [])
 
   return (
-    <div className="bg-white-100 w-[90%] lg:w-[100%]  px-2 py-1 md:col-span-2 h-[50vh] m-auto border rounded-lg">
+    <div className="bg-white-100 w-[100%] overflow-x-auto  px-2 py-1 md:col-span-2 h-[50vh] m-auto border rounded-lg">
       <Bar data={chartData} options={chartOptions} />
     </div>
   );
