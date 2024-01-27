@@ -9,6 +9,7 @@ import Link from "next/link";
 import { MdOutlineDateRange } from "react-icons/md";
 import { IoIosCamera } from "react-icons/io";
 import BarCharts from "@/components/barchart/BarCharts";
+import ViewersChart from "@/components/barchart/ViewersChart";
 
 const Dashboard = () => {
   return (
@@ -82,7 +83,7 @@ const Dashboard = () => {
                   </div>
                 </div>
                 <div>
-                  <Image src="/pie.png" width={100} height={100} alt="pie" />
+                  <ViewersChart />
                 </div>
               </div>
             </ViewersCard>
