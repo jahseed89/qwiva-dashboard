@@ -52,22 +52,22 @@ const BarCharts = () => {
   return (
     <>
       <div className="flex justify-between items-center py-5 px-2 bg-white-100">
-        <h1 className="font-bold text-[10px] md:text-lg">Profile views</h1>
-        <div className="w-[80%] lg:w-[50%] flex justify-between items-center text-sm">
+        <h1 className="font-bold text-[10px] md:text-lg hidden md:block">Profile views</h1>
+        <div className="w-[100%] md:w-[70%] lg:w-[50%] flex justify-between items-center text-sm">
           <span className="flex items-center ">
-            <span className="rounded-full text-blue-100 bg-blue-100 w-[6px] h-[6px] md:w-[10px] md:h-[10px] mr-0 md:mr-2">
+            <span className="rounded-full text-blue-100 bg-blue-100 w-[6px] h-[6px] md:w-[10px] md:h-[10px] mr-2">
               .
             </span>
             <span className="text-lightgrey-400 font-bold">Users</span>
           </span>
           <span className="flex items-center px-1 md:px-0">
-            <span className="rounded-full text-pink-100 bg-pink-100 w-[6px] h-[6px] md:w-[10px] md:h-[10px] mr-0 md:mr-2">
+            <span className="rounded-full text-pink-100 bg-pink-100 w-[6px] h-[6px] md:w-[10px] md:h-[10px] mr-2">
               .
             </span>
             <span className="text-lightgrey-400 font-bold">Recruiters</span>
           </span>
-          <span className="flex items-center">
-            <span className="rounded-full text-blue-250 bg-blue-250 w-[6px] h-[6px] md:w-[10px] md:h-[10px] mr-0 md:mr-2">
+          <span className="flex items-center pr-1 md:pr-0">
+            <span className="rounded-full text-blue-250 bg-blue-250 w-[6px] h-[6px] md:w-[10px] md:h-[10px] mr-2">
               .
             </span>
             <span className="text-lightgrey-400 font-bold">Incognito</span>
@@ -82,7 +82,7 @@ const BarCharts = () => {
           </Button>
         </div>
       </div>
-      <div className="h-[40vh] flex justify-start items-end">
+      <div className="h-[50vh] md:h-[40vh] flex justify-start items-end">
         <BarChart width={600} height={300} data={data}>
           <XAxis dataKey="name" />
           <YAxis />
