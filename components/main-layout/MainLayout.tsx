@@ -25,7 +25,7 @@ const MainLayout: React.FC<MainLayoutProps> = ({ children }) => {
       <div
         className={`${
           toggleSidebar ? "sm:block" : "hidden"
-        } bg-white-100 h-screen w-[90%] lg:w-[20%] py-3 px-3 !z-50 lg:block fixed top-0 left-0 border-r border-blue-10`}
+        } bg-white-100 h-screen w-[80%] lg:w-[20%] py-3 px-3 !z-50 lg:block fixed top-0 left-0 border-r border-blue-10`}
       >
         <h2 className="absolute text-blue-100 text-3xl top-6 pr-3 right-0 lg:hidden" onClick={handleToggleSidebar}>
           <IoClose />
