@@ -1,6 +1,5 @@
 "use client";
 
-import BarChart from "@/components/barchart/BarChart";
 import Button from "@/components/button/Button";
 import CareersCard from "@/components/careers/CareersCard";
 import MainLayout from "@/components/main-layout/MainLayout";
@@ -9,6 +8,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { MdOutlineDateRange } from "react-icons/md";
 import { IoIosCamera } from "react-icons/io";
+import BarCharts from "@/components/barchart/BarCharts";
 
 const Dashboard = () => {
   return (
@@ -45,8 +45,8 @@ const Dashboard = () => {
           />
         </div>
         <div className="w-[100%] flex flex-col lg:flex-row lg:gap-11 my-6 xl:justify-between xl:gap-0">
-          <div className="w-[100%] lg:w-[74%]">
-            <BarChart />
+          <div className="w-[100%] lg:w-[74%] overflow-x-auto bg-white-100 rounded-lg">
+            <BarCharts />
           </div>
           <div className="lg:flex flex-col justify-between w-[100%] lg:h-[50vh] my-5 lg:my-0 lg:w-[250px]">
             <ViewersCard>
