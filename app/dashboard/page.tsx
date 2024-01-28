@@ -56,27 +56,21 @@ const Dashboard = () => {
                 <div>
                   <div className="flex flex-col text-[10px]">
                     <span className="flex items-center pb-1">
-                      <span className="rounded-full text-pink-100 bg-pink-100 w-[6px] h-[6px] mr-2">
-                        .
-                      </span>
+                      <span className="rounded-full text-pink-100 bg-pink-100 w-[6px] h-[6px] mr-2"></span>
                       <span>8</span>
                     </span>
                     <span className="text-lightgrey-400">Incognito</span>
                   </div>
                   <div className="flex flex-col text-[10px] my-4">
                     <span className="flex items-center pb-1">
-                      <span className="rounded-full text-blue-100 bg-blue-100 w-[6px] h-[6px] mr-2">
-                        .
-                      </span>
+                      <span className="rounded-full text-blue-100 bg-blue-100 w-[6px] h-[6px] mr-2"></span>
                       <span className="text-lightgrey-400">5</span>
                     </span>
                     <span className="text-lightgrey-400">User</span>
                   </div>
                   <div className="flex flex-col text-[10px]">
                     <span className="flex items-center pb-1">
-                      <span className="rounded-full text-blue-250 bg-blue-250 w-[6px] h-[6px] mr-2">
-                        .
-                      </span>
+                      <span className="rounded-full text-blue-250 bg-blue-250 w-[6px] h-[6px] mr-2"></span>
                       <span className="text-lightgrey-400">10</span>
                     </span>
                     <span className="text-lightgrey-400">Recruiters</span>
